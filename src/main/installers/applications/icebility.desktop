@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Icebility
+Name[en_GB]=Icebility
+GenericName=Planet Forever Ability Table Editor
+GenericName[en_GB]=Planet Forever Ability Table Editor
+Comment=Planet Forever Ability Table Editor
+Icon=icebility.png
+TryExec=icebility
+Exec=icebility
+Terminal=false
+# Categorie entry according to version 1.0 of
+# http://www.freedesktop.org/wiki/Specifications/menu-spec
+Categories=GNOME;Development;
+Encoding=UTF-8

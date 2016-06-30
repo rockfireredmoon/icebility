@@ -1,0 +1,9 @@
+Package: icebility
+Version: [[build.application.version.withBuildNumber]]
+Section: misc
+Priority: optional
+Architecture: all
+Depends: openjdk-8-jre-lib | openjdk-8-jdk | oracle-java8-installer
+Maintainer: Emerald Icemoon <emerald.icemoon@gmail.com>
+Description: Planet Forever Ability Table Editor
+Distribution: development

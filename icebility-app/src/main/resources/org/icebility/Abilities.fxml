@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.icebility.Abilities">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="open" mnemonicParsing="false" onAction="#evtOpenFile" text="Open" />
+                  <MenuItem fx:id="saveAs" mnemonicParsing="false" onAction="#evtSaveAs" text="Save As" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="loadServer" mnemonicParsing="false" onAction="#evtLoadServerTable" text="Load Current Server Table From Internet" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem fx:id="close" mnemonicParsing="false" onAction="#evtClose" text="Close" />
+                  <MenuItem mnemonicParsing="false" onAction="#evtExit" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem fx:id="newItem" mnemonicParsing="false" onAction="#evtNewItem" text="New" />
+              <MenuItem fx:id="deleteItem" mnemonicParsing="false" onAction="#evtDeleteItem" text="Delete" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="copy" mnemonicParsing="false" onAction="#evtCopy" text="Copy" />
+                  <MenuItem fx:id="paste" mnemonicParsing="false" onAction="#evtPaste" text="Paste" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#evtAbout" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.65" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <center>
+                        <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="nameColumn" prefWidth="200.0" text="Name" />
+                              <TableColumn fx:id="groupIdColumn" prefWidth="75.0" text="Group ID" />
+                              <TableColumn fx:id="categoryColumn" prefWidth="140.0" text="Category" />
+                              <TableColumn fx:id="cooldownCategoryColumn" prefWidth="160.0" text="Cooldown Category" />
+                              <TableColumn fx:id="levelColumn" prefWidth="64.0" text="Level" />
+                              <TableColumn fx:id="tierColumn" prefWidth="64.0" text="Tier" />
+                          </columns>
+                        </TableView>
+                     </center>
+                     <top>
+                        <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField fx:id="filter" onKeyTyped="#evtFilterChanged" promptText="Filter" />
+                           </children>
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                        </HBox>
+                     </top>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <center>
+                        <TabPane prefWidth="350.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                          <tabs>
+                            <Tab text="General">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                       <children>
+                                          <GridPane vgap="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="ID" />
+                                                <Label text="Name" GridPane.rowIndex="1" />
+                                                <TextField fx:id="id" GridPane.columnIndex="1">
+                                                   <tooltip>
+                                                      <Tooltip text="%id.tooltip" />
+                                                   </tooltip></TextField>
+                                                <Label text="Hostility" GridPane.rowIndex="3" />
+                                                <ComboBox fx:id="hostility" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <tooltip>
+                                                      <Tooltip text="%hostility.tooltip" />
+                                                   </tooltip></ComboBox>
+                                                <Label text="Duration" GridPane.rowIndex="5" />
+                                                <Label text="Interval" GridPane.rowIndex="6" />
+                                                <Label text="Cooldown Category" GridPane.rowIndex="7" />
+                                                <Label text="Cooldown Time" GridPane.rowIndex="8" />
+                                                <TextField fx:id="interval" promptText="ms" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                   <tooltip>
+                                                      <Tooltip text="%interval.tooltip" />
+                                                   </tooltip></TextField>
+                                                <ComboBox fx:id="cooldownCategory" editable="true" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                   <tooltip>
+                                                      <Tooltip text="%cooldownCategory.tooltip" />
+                                                   </tooltip></ComboBox>
+                                                <TextField fx:id="cooldownTime" promptText="ms" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                   <tooltip>
+                                                      <Tooltip text="%cooldownTime.tooltip" />
+                                                   </tooltip></TextField>
+                                                <Label text="Tier" GridPane.rowIndex="9" />
+                                                <Label text="Description" GridPane.rowIndex="11" />
+                                                <Label text="Label" GridPane.rowIndex="12" />
+                                                <ComboBox fx:id="tier" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                                   <tooltip>
+                                                      <Tooltip text="%tier.tooltip" />
+                                                   </tooltip></ComboBox>
+                                                <TextArea fx:id="description" prefHeight="128.0" wrapText="true" GridPane.columnSpan="2147483647" GridPane.rowIndex="12">
+                                                   <tooltip>
+                                                      <Tooltip text="%description.tooltip" />
+                                                   </tooltip></TextArea>
+                                                <TextField fx:id="name" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+                                                   <tooltip>
+                                                      <Tooltip text="%name.tooltip" />
+                                                   </tooltip></TextField>
+                                                <TextField fx:id="duration" promptText="ms" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                   <tooltip>
+                                                      <Tooltip text="%duration.tooltip" />
+                                                   </tooltip></TextField>
+                                                <Label text="Group ID" GridPane.rowIndex="10" />
+                                                <ComboBox fx:id="groupId" editable="true" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                                   <tooltip>
+                                                      <Tooltip text="%groupId.tooltip" />
+                                                   </tooltip></ComboBox>
+                                                <Label text="Warmup Time" GridPane.rowIndex="4" />
+                                                <TextField fx:id="warmupTime" promptText="ms" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                   <tooltip>
+                                                      <Tooltip text="%warmupTime.tooltip" />
+                                                   </tooltip></TextField>
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </GridPane>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Purchase">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                       <children>
+                                          <GridPane layoutX="44.0" layoutY="194.0" vgap="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="128.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Level" />
+                                                <Label text="Cross Cost" GridPane.rowIndex="1" />
+                                                <Label text="Class Cost" GridPane.rowIndex="2" />
+                                                <BorderPane GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
+                                                   <center>
+                                                      <ListView fx:id="requiredAbilities" prefHeight="96.0" BorderPane.alignment="CENTER">
+                                                         <tooltip>
+                                                            <Tooltip text="requiredAbilities.tooltip" />
+                                                         </tooltip></ListView>
+                                                   </center>
+                                                   <right>
+                                                      <VBox spacing="8.0" BorderPane.alignment="CENTER">
+                                                         <children>
+                                                            <Button mnemonicParsing="false" onAction="#evtAddRequiredAbility" prefWidth="80.0" text="Add" />
+                                                            <Button mnemonicParsing="false" onAction="#evtRemoveRequiredAbility" prefWidth="80.0" text="Remove" />
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="8.0" />
+                                                         </padding>
+                                                      </VBox>
+                                                   </right>
+                                                </BorderPane>
+                                                <Label text="Required Abilities" GridPane.rowIndex="3" />
+                                                <Label text="Classes" GridPane.rowIndex="5" />
+                                                <VBox alignment="CENTER_LEFT" spacing="8.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                   <children>
+                                                      <CheckBox fx:id="knight" mnemonicParsing="false" text="Knight">
+                                                         <tooltip>
+                                                            <Tooltip text="%knight.tooltip" />
+                                                         </tooltip></CheckBox>
+                                                      <CheckBox fx:id="rogue" mnemonicParsing="false" text="Rogue">
+                                                         <tooltip>
+                                                            <Tooltip text="%rogue.tooltip" />
+                                                         </tooltip></CheckBox>
+                                                      <CheckBox fx:id="mage" mnemonicParsing="false" text="Mage">
+                                                         <tooltip>
+                                                            <Tooltip text="%mage.tooltip" />
+                                                         </tooltip></CheckBox>
+                                                      <CheckBox fx:id="druid" mnemonicParsing="false" text="Druid">
+                                                         <tooltip>
+                                                            <Tooltip text="druid.tooltip" />
+                                                         </tooltip></CheckBox>
+                                                   </children>
+                                                </VBox>
+                                                <TextField fx:id="level" GridPane.columnIndex="1">
+                                                   <tooltip>
+                                                      <Tooltip text="%level.tooltip" />
+                                                   </tooltip></TextField>
+                                                <TextField fx:id="crossCost" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <tooltip>
+                                                      <Tooltip text="%crossCost.tooltip" />
+                                                   </tooltip></TextField>
+                                                <TextField fx:id="classCost" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <tooltip>
+                                                      <Tooltip text="%classCost.tooltip" />
+                                                   </tooltip></TextField>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Visual">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                       <children>
+                                          <GridPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <ComboBox fx:id="warmupCue" prefWidth="150.0" GridPane.columnIndex="1">
+                                                   <tooltip>
+                                                      <Tooltip text="%warmupCue.tooltip" />
+                                                   </tooltip></ComboBox>
+                                                <Label text="Visual Cue" GridPane.rowIndex="1" />
+                                                <Label text="Warmup Cue" />
+                                                <ComboBox fx:id="visualCue" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <tooltip>
+                                                      <Tooltip text="%visualCue.tooltip" />
+                                                   </tooltip></ComboBox>
+                                                <Label text="Icon" GridPane.rowIndex="2" />
+                                                <TextField fx:id="icon" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <tooltip>
+                                                      <Tooltip text="%icon.tooltip" />
+                                                   </tooltip></TextField>
+                                                <Label text="Category" GridPane.rowIndex="3" />
+                                                <ComboBox fx:id="category" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <tooltip>
+                                                      <Tooltip text="category.tooltip" />
+                                                   </tooltip></ComboBox>
+                                                <Label text="X" GridPane.rowIndex="4" />
+                                                <Label text="Y" GridPane.rowIndex="5" />
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="x">
+                                                   <tooltip>
+                                                      <Tooltip text="%x.tooltip" />
+                                                   </tooltip></TextField>
+                                                <TextField fx:id="y" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                   <tooltip>
+                                                      <Tooltip text="%y.tooltip" />
+                                                   </tooltip></TextField>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Activation">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                       <children>
+                                          <GridPane layoutX="154.0" layoutY="166.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <TextArea fx:id="activationCriteria" prefHeight="128.0" wrapText="true" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+                                                   <tooltip>
+                                                      <Tooltip text="%activationCriteria.tooltip" />
+                                                   </tooltip></TextArea>
+                                                <Label text="Activation Action" GridPane.rowIndex="3" />
+                                                <Label text="Activation Criteria" GridPane.rowIndex="1" />
+                                                <TextArea fx:id="activationActions" prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
+                                                   <tooltip>
+                                                      <Tooltip text="%activationActions.tooltip" />
+                                                   </tooltip></TextArea>
+                                                <Label text="Target Status" />
+                                                <ComboBox fx:id="targetStatus" prefWidth="150.0" GridPane.columnIndex="1">
+                                                   <tooltip>
+                                                      <Tooltip text="%targetStatus.tooltip" />
+                                                   </tooltip></ComboBox>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Buff">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <GridPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Type" />
+                                                <Label text="Category" GridPane.rowIndex="1" />
+                                                <Label text="Title" GridPane.rowIndex="2" />
+                                                <ComboBox fx:id="buffType" prefWidth="150.0" GridPane.columnIndex="1">
+                                                   <tooltip>
+                                                      <Tooltip text="%buffType.tooltip" />
+                                                   </tooltip></ComboBox>
+                                                <ComboBox fx:id="buffCategory" editable="true" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <tooltip>
+                                                      <Tooltip text="%buffCategory.tooltip" />
+                                                   </tooltip></ComboBox>
+                                                <TextField fx:id="buffTitle" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <tooltip>
+                                                      <Tooltip text="%buffTitle.tooltip" />
+                                                   </tooltip></TextField>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Other">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                       <children>
+                                          <GridPane vgap="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Ability Class" GridPane.rowIndex="1" />
+                                                <Label text="Use Type" GridPane.rowIndex="2" />
+                                                <ComboBox fx:id="abilityClass" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <tooltip>
+                                                      <Tooltip text="%abilityClass.tooltip" />
+                                                   </tooltip></ComboBox>
+                                                <ComboBox fx:id="useType" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <tooltip>
+                                                      <Tooltip text="%useType.tooltip" />
+                                                   </tooltip></ComboBox>
+                                                <Label disable="true" text="Add Magic Charge" GridPane.rowIndex="3" />
+                                                <Label disable="true" text="Add Melee Charge" GridPane.rowIndex="4" />
+                                                <Label disable="true" text="Ownage" GridPane.rowIndex="5" />
+                                                <Label disable="true" text="Gold Cost" GridPane.rowIndex="6" />
+                                                <TextField fx:id="addMagicCharge" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <tooltip>
+                                                      <Tooltip text="%addMagicCharge.tooltip" />
+                                                   </tooltip></TextField>
+                                                <TextField fx:id="addMeleeCharge" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                   <tooltip>
+                                                      <Tooltip text="%addMeleeCharge.tooltip" />
+                                                   </tooltip></TextField>
+                                                <TextField fx:id="ownage" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                   <tooltip>
+                                                      <Tooltip text="%ownage.tooltip" />
+                                                   </tooltip></TextField>
+                                                <TextField fx:id="goldCost" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                   <tooltip>
+                                                      <Tooltip text="%goldCost.tooltip" />
+                                                   </tooltip></TextField>
+                                                <Label text="Server Flags" />
+                                                <VBox spacing="8.0" GridPane.columnIndex="1">
+                                                   <children>
+                                                      <CheckBox fx:id="secondaryChannel" mnemonicParsing="false" text="Secondary Channel">
+                                                         <tooltip>
+                                                            <Tooltip text="%secondaryChannel.tooltip" />
+                                                         </tooltip></CheckBox>
+                                                      <CheckBox fx:id="unbreakableChannel" mnemonicParsing="false" text="Unbreakable Channel">
+                                                         <tooltip>
+                                                            <Tooltip text="%unbreakableChannel.tooltip" />
+                                                         </tooltip></CheckBox>
+                                                      <CheckBox fx:id="allowDeadState" mnemonicParsing="false" text="Allow Dead State">
+                                                         <tooltip>
+                                                            <Tooltip text="%allowDeadState.tooltip" />
+                                                         </tooltip></CheckBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </center>
+                     <bottom>
+                        <HBox spacing="8.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="saveItem" mnemonicParsing="false" onAction="#evtSaveItem" text="Save">
+                                 <tooltip>
+                                    <Tooltip text="Save this ability" />
+                                 </tooltip></Button>
+                              <Button fx:id="cancelItem" mnemonicParsing="false" onAction="#evtCancelItem" text="Cancel" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                        </HBox>
+                     </bottom>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>

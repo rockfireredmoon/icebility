@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>icebility-app</artifactId>
+	<name>Icebility</name>
+	<description>Ability table editor for planetforever</description>
+	<parent>
+		<groupId>org.icemoon</groupId>
+		<artifactId>icebility</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<outputDirectory>target/classes</outputDirectory>
+		<testOutputDirectory>target/test-classes</testOutputDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.zenjava</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>8.1.2</version>
+				<configuration>
+					<mainClass>org.icemoon.icebility.Main</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-jfx-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId> 
+				<configuration> <archive> <manifestEntries> <Main-Class>org.icechat.IcechatApp</Main-Class> 
+				<SplashScreen-Image>Textures/splash.png</SplashScreen-Image> </manifestEntries> 
+				</archive> </configuration> </plugin> -->
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.controlsfx</groupId>
+			<artifactId>controlsfx</artifactId>
+			<version>8.40.9</version>
+		</dependency>
+	</dependencies>
+</project>

@@ -86,7 +86,9 @@
 						<goals>
 							<goal>updates</goal>
 							<goal>stub</goal>
+							<!--
 							<goal>applet</goal>
+							-->
 						</goals>
 						<configuration>
 							<appbase>${ability.home}/getdown</appbase>
@@ -105,10 +107,10 @@
 							<ui>
 								<name>Icebility</name>
 								<icons>
-									<icon>${basedir}/../icebility-group/src/main/installers/images/icebility.png</icon>
+									<icon>${basedir}/../src/main/installers/images/icebility.png</icon>
 								</icons>
-								<progressImage>${basedir}/../icebility-group/src/main/installers/images/progress.png</progressImage>
-								<backgroundImage>${basedir}/../icebility-group/src/main/installers/images/splash.png</backgroundImage>
+								<progressImage>${basedir}/../src/main/installers/images/progress.png</progressImage>
+								<backgroundImage>${basedir}/../src/main/installers/images/splash.png</backgroundImage>
 								<progress>80, 244, 196, 11</progress>
 								<progressText>FFFFFF</progressText>
 								<statusText>FFFFFF</statusText>
@@ -116,6 +118,7 @@
 								<textShadow>111111</textShadow>
 							</ui>
 
+							<!--
 							<sign>
 								<keystore>${signingFiles}/${certificate.keystore}</keystore>
 								<keypass>${certificate.password}</keypass>
@@ -124,6 +127,7 @@
 								<alias>${certificate.alias}</alias>
 								<verify>true</verify>
 							</sign>
+							-->
 
 						</configuration>
 					</execution>
@@ -185,7 +189,7 @@
 						</data>
 						<data>
 							<type>directory</type>
-							<src>${basedir}/../icebility-group/src/main/installers/scripts</src>
+							<src>${basedir}/../src/main/installers/scripts</src>
 							<includes>*</includes>
 							<mapper>
 								<type>perm</type>
@@ -198,7 +202,7 @@
 						</data>
 						<data>
 							<type>directory</type>
-							<src>${basedir}/../icebility-group/src/main/installers/images</src>
+							<src>${basedir}/../src/main/installers/images</src>
 							<includes>icebility.png</includes>
 							<mapper>
 								<type>perm</type>
@@ -211,7 +215,7 @@
 						</data>
 						<data>
 							<type>directory</type>
-							<src>${basedir}/../icebility-group/src/main/installers/applications</src>
+							<src>${basedir}/../src/main/installers/applications</src>
 							<includes>*</includes>
 							<mapper>
 								<type>perm</type>
@@ -265,7 +269,7 @@
 							<directoryIncluded>false</directoryIncluded>
 							<sources>
 								<source>
-									<location>${basedir}/../icebility-group/src/main/installers/scripts/icebility</location>
+									<location>${basedir}/../src/main/installers/scripts/icebility</location>
 								</source>
 							</sources>
 						</mapping>
@@ -277,7 +281,7 @@
 							<directoryIncluded>false</directoryIncluded>
 							<sources>
 								<source>
-									<location>${basedir}/../icebility-group/src/main/installers/applications/icebility.desktop</location>
+									<location>${basedir}/../src/main/installers/applications/icebility.desktop</location>
 								</source>
 							</sources>
 						</mapping>
@@ -289,7 +293,7 @@
 							<directoryIncluded>false</directoryIncluded>
 							<sources>
 								<source>
-									<location>${basedir}/../icebility-group/src/main/installers/images/icebility.png</location>
+									<location>${basedir}/../src/main/installers/images/icebility.png</location>
 								</source>
 							</sources>
 						</mapping>
@@ -364,7 +368,7 @@
 			</plugin>
 
 			<!-- And now OS X -->
-
+			<!--
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>osxappbundle-maven-plugin</artifactId>
@@ -397,6 +401,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			-->
 
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -411,7 +416,7 @@
 						</goals>
 						<configuration>
 							<fromDir>target</fromDir>
-							<includes>getdown/**/*,getdown-applet/**/*,icebility-app.zip,icebility.deb,SetupIcebility.exe,icebility.noarch.rpm</includes>
+							<includes>getdown/**/*,icebility-app.zip,icebility.deb,SetupIcebility.exe,icebility.noarch.rpm</includes>
 							<url>scp://${ability.username}@${ability.host}${ability.dir}</url>
 						</configuration>
 					</execution>

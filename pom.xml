@@ -13,7 +13,7 @@
 	</build>
 	<packaging>pom</packaging>
 	<modules>
-		<module>icebility</module>
+		<module>icebility-app</module>
 		<module>icebility-pkg-getdown</module>
 	</modules>
 </project>

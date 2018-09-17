@@ -305,6 +305,7 @@ public class Abilities {
 		cooldownCategory.valueProperty().addListener(cl);
 		cooldownTime.textProperty().addListener(cl);
 		tier.valueProperty().addListener(il);
+		groupId.editorProperty().get().textProperty().addListener(cl);
 		groupId.valueProperty().addListener(cl);
 		description.textProperty().addListener(cl);
 		level.textProperty().addListener(cl);
@@ -443,7 +444,7 @@ public class Abilities {
 				tier.getSelectionModel().select(newValue.getTier() - 1);
 				description.setText(newValue.getDescription());
 				visualCue.getSelectionModel().select(newValue.getVisualCue());
-				groupId.getSelectionModel().select((Integer) newValue.getGroupId());
+				groupId.valueProperty().set(String.valueOf(newValue.getGroupId()));
 				level.setText(String.valueOf(newValue.getLevel()));
 				crossCost.setText(String.valueOf(newValue.getCrossCost()));
 				classCost.setText(String.valueOf(newValue.getClassCost()));
